@@ -37,7 +37,9 @@ public class WebsiteWordCountFilterStream {
 
     static Properties getStreamsConfig(final String[] args) throws IOException {
         final Properties props = new Properties();
-
+        if(args.length == 0){
+            System.out.println("Using Default Topics Stream1Input, StreamOutput");
+        }
         if (args.length == 1) {
             INPUT_TOPIC = args[0];
 
@@ -47,7 +49,11 @@ public class WebsiteWordCountFilterStream {
             OUTPUT_TOPIC = args[1];
         }
         if (args.length > 2) {
-            System.out.println("Warning: Some command line arguments were ignored. This demo only accepts an optional configuration file.");
+            System.err.println("Error: To many arguments given: 0-2 arguments required\n" +
+                    "0 -> default Topics: Stream1Input, StreamOutput\n" +
+                    "1 -> <inputTopic> , uses default StreamOutput for outputTopic\n" +
+                    "2 -> <inputTopic> <outputTopic>\n");
+            System.exit(-1);
         }
 
         props.putIfAbsent(StreamsConfig.APPLICATION_ID_CONFIG, "stream-HTML-wordcount");
@@ -79,8 +85,9 @@ public class WebsiteWordCountFilterStream {
     }
 
     public static void main(final String[] args) throws IOException {
+        // retrieving stop words to a list
         englishStopWords = getFileContentAsList(StopWordsFilePath);
-        //System.out.println(englishStopWords);
+
         final Properties props = getStreamsConfig(args);
 
         final StreamsBuilder builder = new StreamsBuilder();
@@ -90,7 +97,7 @@ public class WebsiteWordCountFilterStream {
         final CountDownLatch latch = new CountDownLatch(1);
 
         // attach shutdown handler to catch control-c
-        Runtime.getRuntime().addShutdownHook(new Thread("streams-WebsiteCleaner and word counter") {
+        Runtime.getRuntime().addShutdownHook(new Thread("streams-WebsiteCleanerCounter") {
             @Override
             public void run() {
                 streams.close();
@@ -110,9 +117,10 @@ public class WebsiteWordCountFilterStream {
     public static String htmlRemover(String input) {
         return Jsoup.parse(input).text();
     }
+
     private static ArrayList<String> getFileContentAsList(String resourceFilePath) throws IOException {
         Path pathToFile = Paths.get(StopWordsFilePath);
-        //System.out.println(pathToFile.toAbsolutePath());
+
         File file = new File(pathToFile.toAbsolutePath().toString());
         Scanner s = new Scanner(file);
         ArrayList<String> result = new ArrayList<String>();

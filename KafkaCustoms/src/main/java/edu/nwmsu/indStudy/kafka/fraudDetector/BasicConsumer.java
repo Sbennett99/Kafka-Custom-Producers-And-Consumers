@@ -10,14 +10,14 @@ import java.util.Arrays;
 import java.util.Properties;
 import java.util.Scanner;
 
-public class Consumer {
+public class BasicConsumer {
     private static Scanner in;
 
 
     public static void main(String[] argv)throws Exception{
         if (argv.length != 2) {
             System.err.printf("Usage: %s <topicName> <groupId>\n",
-                    Consumer.class.getSimpleName());
+                    BasicConsumer.class.getSimpleName());
             System.exit(-1);
         }
         in = new Scanner(System.in);

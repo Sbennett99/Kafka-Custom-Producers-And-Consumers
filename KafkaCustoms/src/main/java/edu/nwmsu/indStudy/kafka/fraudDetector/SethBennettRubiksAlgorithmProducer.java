@@ -10,7 +10,7 @@ import java.util.Scanner;
 /*
     My reference/ example package
  */
-public class SethBennettProducer {
+public class SethBennettRubiksAlgorithmProducer {
     private static Scanner in;
 
     public static void main(String[] argv)throws Exception {

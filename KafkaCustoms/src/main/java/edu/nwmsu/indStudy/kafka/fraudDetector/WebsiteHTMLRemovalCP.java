@@ -19,12 +19,13 @@ public class WebsiteHTMLRemovalCP {
     public static void main(String[] argv)throws Exception{
         if (argv.length != 2) {
             System.err.printf("Usage: %s <inputTopicName> <groupId> <outputTopicName>\n",
-                    Consumer.class.getSimpleName());
+                    BasicConsumer.class.getSimpleName());
             System.exit(-1);
         }
         in = new Scanner(System.in);
         String inputTopicName = argv[0];
         String groupId = argv[1];
+        System.out.println("WARNING: CAN NOT RUN IN UNISON WITH PRIMARY PRODUCER ON STANDARD LOCAL KAFKA SERVER");
         //String outputTopicName = argv[3];
 
         WebsiteHTMLRemovalCP.ConsumerThread consumerRunnable = new WebsiteHTMLRemovalCP.ConsumerThread(inputTopicName,groupId);

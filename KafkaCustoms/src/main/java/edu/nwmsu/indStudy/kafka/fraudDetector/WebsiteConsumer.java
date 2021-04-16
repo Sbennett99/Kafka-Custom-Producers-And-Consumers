@@ -6,7 +6,7 @@ import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
 import org.apache.kafka.common.errors.WakeupException;
 import org.jsoup.Jsoup;
-import org.slf4j.*;
+
 import java.util.Arrays;
 import java.util.Properties;
 import java.util.Scanner;
@@ -24,7 +24,7 @@ public class WebsiteConsumer {
                 groupId = "group1";
             }else {
                 System.err.printf("Usage: %s <topicName> <groupId>\n",
-                    Consumer.class.getSimpleName());
+                    BasicConsumer.class.getSimpleName());
                 System.exit(-1);
             }
         }else{
