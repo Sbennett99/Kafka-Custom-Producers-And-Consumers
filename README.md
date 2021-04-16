@@ -9,7 +9,7 @@
   - custom producer that takes input of a Website Url
   - fetches the website HTML using curl and passes it to the given outputTopic
 
-![](Kafka Producer.PNG)
+![](Kafka_Producer.PNG)
 
 
 -------------
