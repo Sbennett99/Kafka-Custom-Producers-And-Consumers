@@ -71,8 +71,8 @@ public class WebsiteWordCountFilterStream {
         final KStream<String, String> source = builder.stream(INPUT_TOPIC);
 
         final KTable<String, Long> counts = source
-                .flatMapValues(value -> Arrays.asList(value.replaceAll("<.*?>", "").replaceAll("\\p{Punct}", "").toLowerCase(Locale.getDefault()).split("\\s+")))
-                .filter((key, value) -> !englishStopWords.contains(value) || value.length() > 1)
+                .flatMapValues(value -> Arrays.asList(value.replaceAll("\\p{Punct}", "").toLowerCase(Locale.getDefault()).split("\\s+")))
+                .filter((key, value) -> !englishStopWords.contains(value))
                 .groupBy((key, value) -> value)
                 .count();
 

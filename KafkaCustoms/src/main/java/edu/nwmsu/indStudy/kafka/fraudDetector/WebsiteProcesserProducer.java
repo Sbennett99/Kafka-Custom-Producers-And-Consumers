@@ -57,12 +57,13 @@ public class WebsiteProcesserProducer {
                 BufferedReader read = new BufferedReader(new InputStreamReader(ins));
                 StringBuilder sb = new StringBuilder();
 
-                String finalTopicName = topicName;
+                final String finalTopicName = topicName;
                 read
                         .lines()
                         .forEach(lines -> {
-                            //System.out.println(htmlRemover(lines));
-                            ProducerRecord<String, String> rec = new ProducerRecord<String, String>(finalTopicName, lines);
+                            String processed = htmlRemover(lines);
+                            System.out.println(processed);
+                            ProducerRecord<String, String> rec = new ProducerRecord<String, String>(finalTopicName, processed);
                             producer.send(rec);
 
                             sb.append(lines);
