@@ -30,3 +30,4 @@
   - it takes in key value pairs from a Ktable
   
 
+![](Kafka_Output)
