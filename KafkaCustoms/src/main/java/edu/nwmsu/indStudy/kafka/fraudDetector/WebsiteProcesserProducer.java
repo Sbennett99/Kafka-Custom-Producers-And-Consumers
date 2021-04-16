@@ -47,13 +47,11 @@ public class WebsiteProcesserProducer {
         while (!line.equals("exit")) {
             try {
                 String url = line;
-                ProcessBuilder pb = new ProcessBuilder("curl","--silent","--location","--request","POST",url,"--header","Content-Type:application/x-www-form-urlencoded","--data-urlencode","inputParams=<Your Body>");
-
+                ProcessBuilder pb = new ProcessBuilder("curl","--silent","--location",
+                        "--request","POST",url,"--header","Content-Type:application/x-www-form-urlencoded",
+                        "--data-urlencode","inputParams=<Your Body>");
                 pb.redirectErrorStream(true);
-
                 Process proc = pb.start();
-
-
                 InputStream ins = proc.getInputStream();
 
                 BufferedReader read = new BufferedReader(new InputStreamReader(ins));
@@ -92,6 +90,8 @@ public class WebsiteProcesserProducer {
         in.close();
         producer.close();
     }
+
+    // used for testing purposes, used regex to remove in stream
     public static String htmlRemover(String input) {
         return Jsoup.parse(input).text();
     }
