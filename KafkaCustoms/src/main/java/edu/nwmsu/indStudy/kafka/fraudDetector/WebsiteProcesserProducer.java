@@ -1,8 +1,11 @@
 package edu.nwmsu.indStudy.kafka.fraudDetector;
 
+
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.clients.producer.ProducerRecord;
+import org.jsoup.Jsoup;
+
 
 import java.io.*;
 import java.util.Properties;
@@ -10,15 +13,21 @@ import java.util.Scanner;
 
 public class WebsiteProcesserProducer {
     private static Scanner in;
+    private final static String DEFAULT_TOPIC = "Stream1Input";
 
     public static void main(String[] argv)throws Exception {
-
+        String topicName = "";
         if (argv.length != 1) {
-            System.err.println("Please specify 1 parameter ");
-            System.exit(-1);
+            if (argv.length == 0){
+                topicName = DEFAULT_TOPIC;
+            }else {
+                System.err.println("Please specify 1 parameter or none for default topicName: " + DEFAULT_TOPIC);
+                System.exit(-1);
+            }
         }
-
-        String topicName = argv[0];
+        else {
+            topicName = argv[0];
+        }
         in = new Scanner(System.in);
         System.out.println("Enter message(type exit to quit)");
 
@@ -33,6 +42,7 @@ public class WebsiteProcesserProducer {
 
         System.out.println("Welcome To The web page Processor");
         System.out.println("Enter 'exit' to quit or a website URL to begin\n");
+        System.out.println();
         String line = in.nextLine();
         while (!line.equals("exit")) {
             try {
@@ -49,11 +59,12 @@ public class WebsiteProcesserProducer {
                 BufferedReader read = new BufferedReader(new InputStreamReader(ins));
                 StringBuilder sb = new StringBuilder();
 
+                String finalTopicName = topicName;
                 read
                         .lines()
                         .forEach(lines -> {
-                            System.out.println(lines);
-                            ProducerRecord<String, String> rec = new ProducerRecord<String, String>(topicName, lines);
+                            //System.out.println(htmlRemover(lines));
+                            ProducerRecord<String, String> rec = new ProducerRecord<String, String>(finalTopicName, lines);
                             producer.send(rec);
 
                             sb.append(lines);
@@ -80,5 +91,8 @@ public class WebsiteProcesserProducer {
         }
         in.close();
         producer.close();
+    }
+    public static String htmlRemover(String input) {
+        return Jsoup.parse(input).text();
     }
 }
