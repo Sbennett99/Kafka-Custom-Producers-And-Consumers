@@ -5,7 +5,8 @@
 
 ### Project Files
 - [Custom Website Producer](KafkaCustoms/src/main/java/edu/nwmsu/indStudy/kafka/fraudDetector/WebsiteProcesserProducer.java)
-  - custom producer that takes input of a Website Url, fetches the website HTML using curl and passes it to the given outputTopic
+  - custom producer that takes input of a Website Url
+  - fetches the website HTML using curl and passes it to the given outputTopic
 
 
 
