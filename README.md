@@ -23,7 +23,7 @@
   - Pulls from given Topic through a Kstream
   - Filters out HTML artifacts and condenses information into key value 
 
-* Not Fully Tested, Cannot Run locally due to Kafka Constraints *
+*Not Fully Tested, Cannot Run locally due to Kafka Constraints*
 -------------
 - [Custom Website Consumer](KafkaCustoms/src/main/java/edu/nwmsu/indStudy/kafka/fraudDetector/WebsiteConsumer.java)
   - not much different than a standard consumer in that it pulls data and print it
