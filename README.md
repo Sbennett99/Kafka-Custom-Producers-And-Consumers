@@ -31,3 +31,13 @@
   
 
 ![](Kafka_Output)
+
+### [Running the Project for yourself](https://github.com/Sbennett99/Kafka-Custom-Producers-And-Consumers/blob/448637f8fc8252b3ff195d7cf820b1c3152ad00b/Getting_Started.md)
+
+### References
+
+[Appache Kafka Streams Documentation](https://kafka.apache.org/documentation/streams/)
+[English Stop words](https://gist.github.com/sebleier/554280)
+[HTML removal through JSOUP](https://stackoverflow.com/questions/240546/remove-html-tags-from-a-string/4095615)
+[Basic Producer and Consumer Examples](https://github.com/denisecase/kafka-api/tree/master/src/main/java/com/spnotes/kafka/simple)
+[Curling a website in java](https://www.baeldung.com/java-curl)
