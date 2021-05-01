@@ -22,8 +22,8 @@
 - [Custom HTML Removal Consumer/Producer Hybrid ](KafkaCustoms/src/main/java/edu/nwmsu/indStudy/kafka/fraudDetector/WebsiteHTMLRemovalCP.java)
   - Pulls from given Topic through a Kstream
   - Filters out HTML artifacts and condenses information into key value 
-
 <em>Not Fully Tested, Cannot Run locally due to Kafka Constraints</em>
+
 -------------
 - [Custom Website Consumer](KafkaCustoms/src/main/java/edu/nwmsu/indStudy/kafka/fraudDetector/WebsiteConsumer.java)
   - not much different than a standard consumer in that it pulls data and print it
