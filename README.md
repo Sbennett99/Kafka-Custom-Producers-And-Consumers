@@ -30,7 +30,7 @@
   - it takes in key value pairs from a Ktable
   
 
-![](Kafka_Output)
+<img src="Kafka_Output.PNG" alt="" width="400"/>
 
 ### [Running the Project for yourself](https://github.com/Sbennett99/Kafka-Custom-Producers-And-Consumers/blob/448637f8fc8252b3ff195d7cf820b1c3152ad00b/Getting_Started.md)
 
