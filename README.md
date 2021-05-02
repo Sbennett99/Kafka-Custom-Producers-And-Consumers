@@ -8,8 +8,8 @@
 - [Custom Website Producer](KafkaCustoms/src/main/java/edu/nwmsu/indStudy/kafka/fraudDetector/WebsiteProcesserProducer.java)
   - custom producer that takes input of a Website Url
   - fetches the website HTML using curl and passes it to the given outputTopic
+<img src="Kafka_Producer.PNG" alt="" width="400"/>
 
-![](Kafka_Producer.PNG)
 
 
 -------------
@@ -23,14 +23,15 @@
   - Pulls from given Topic through a Kstream
   - Filters out HTML artifacts and condenses information into key value 
 
-*Not Fully Tested, Cannot Run locally due to Kafka Constraints
+<em>\*\*Not Fully Tested, Cannot Run locally due to Kafka Constraints</em>
+
 -------------
 - [Custom Website Consumer](KafkaCustoms/src/main/java/edu/nwmsu/indStudy/kafka/fraudDetector/WebsiteConsumer.java)
   - not much different than a standard consumer in that it pulls data and print it
   - it takes in key value pairs from a Ktable
   
 
-![](Kafka_Output)
+<img src="Kafka_Output.PNG" alt="" width="400"/>
 
 ### [Running the Project for yourself](https://github.com/Sbennett99/Kafka-Custom-Producers-And-Consumers/blob/448637f8fc8252b3ff195d7cf820b1c3152ad00b/Getting_Started.md)
 
