@@ -35,6 +35,8 @@
 
 ### [Running the Project for yourself](https://github.com/Sbennett99/Kafka-Custom-Producers-And-Consumers/blob/448637f8fc8252b3ff195d7cf820b1c3152ad00b/Getting_Started.md)
 
+### [A Summary of what I Learned** Not yet added]()
+
 ### References
 
 [Appache Kafka Streams Documentation](https://kafka.apache.org/documentation/streams/)
