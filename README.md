@@ -35,7 +35,7 @@
 
 ### [Running the Project for yourself](https://github.com/Sbennett99/Kafka-Custom-Producers-And-Consumers/blob/448637f8fc8252b3ff195d7cf820b1c3152ad00b/Getting_Started.md)
 
-### [A Summary of what I Learned** Not yet added]()
+### [A Quick and Concise Summary of what I Learned](https://github.com/Sbennett99/Kafka-Custom-Producers-And-Consumers/blob/30ea929cc4274654427feb21ad5247679d92c696/Experience%20Overview.docx)
 
 ### References
 
